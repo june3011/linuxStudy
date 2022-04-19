@@ -5,10 +5,12 @@
 #include <sys/stat.h>
 #define BUFFSIZE 512
 
+// #define U_INT unsigned int
+
 int main(int argc, char **argv)
 {
     char buf[BUFFSIZE];
-    size_t nread;
+    size_t nread;       // unsigned int
 
     // file1
     int fd1 = open(argv[1], O_RDONLY);
@@ -16,7 +18,7 @@ int main(int argc, char **argv)
         perror("fd1 fileopen faile");
     
     // file2
-    int fd2 = open(argv[2],O_WRONLY);
+    int fd2 = open(argv[2],O_WRONLY | O_CREAT | O_TRUNC, 0000);
     if (fd2 == -1)
         perror("fd2 file open file");
 

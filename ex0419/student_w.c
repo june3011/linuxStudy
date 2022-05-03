@@ -18,7 +18,7 @@ int main()
 
     if(fd1 == -1)
     {
-        printf("fd1 create 실패");
+        printf("fd1 create fail");
         return -1;
     }
 

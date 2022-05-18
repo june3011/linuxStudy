@@ -11,5 +11,5 @@ int main(int argc, char **argv)
     {
         printf("파일이 삭제되었습니다.\n");
     }
-
+    close(fd);
 }

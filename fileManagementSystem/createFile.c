@@ -46,7 +46,7 @@ int main(int argc, char **argv)
     // printf("%s\n", argv[2]);
 
     // 0, -1
-    fd = open(argv[1], O_WRONLY || O_RDONLY || O_WRONLY);
+    fd = open(argv[1], O_WRONLY || O_RDONLY || O_RDWR);
     if (fd >= 0)
     {
         printf("이미 있는 파일명입니다.\n");
@@ -62,6 +62,6 @@ int main(int argc, char **argv)
         printf("파일이 생성되었습니다.\n");
     }
 
-    // if ()
+    close(fd);
 
 }

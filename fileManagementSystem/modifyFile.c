@@ -3,10 +3,11 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #define BUF_SIZ 1024
 
-int main()
+int main(int argc, char **argv)
 {
     int fd;
     char fileName[20];
@@ -21,11 +22,16 @@ int main()
     //     printf("file open fail");
     // }
 
-    
-        printf("내용을 추가할 파일 이름을 입력하세요. ");
-        scanf("%s", fileName);
+    if (argc > 1)
+    {
+        printf("%s   <--- 이 형식으로 작성해주세요.\n", argv[0]);
+        exit(0);
+    }
 
-        fd = open(fileName, O_RDWR);
+    printf("내용을 추가할 파일 이름을 입력하세요. ");
+    scanf("%s", fileName);
+
+    fd = open(fileName, O_RDWR);
 
         if (fd >= 0){
             do{
@@ -79,4 +85,5 @@ int main()
         // getchar();
     
     printf("수정 프로그램이 종료되었습니다.\n");
+    return 0;
 }

@@ -37,7 +37,6 @@ int main(int argc, char **argv)
     if (fd < 0)
     {
         fd = creat(fileName, perm);
-        printf("%d", fd);
         printf("파일이 생성되었습니다\n");
     }
     else
